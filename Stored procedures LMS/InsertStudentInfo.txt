@@ -1,0 +1,25 @@
+ALTER PROCEDURE [dbo].[InsertStudentInfo] 
+	-- Add the parameters for the stored procedure here
+	@StudentID int,
+	@StudentName nvarchar(50),
+	@StudentSurname nvarchar(50),
+	@StudentEmail nvarchar(50),
+	@StudentPhone nvarchar(50),
+	@StudentCity nvarchar(50),
+	@StudentAddress nvarchar(50),
+	@StudentPostalCode nvarchar(50),
+	@PreviousSchool nvarchar(50),
+	@DateOfBirth nvarchar(50),
+	@GradeID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO tblStudent (StudentName, StudentSurname, StudentEmail, StudentPhone, StudentCity,
+	                         StudentAddress, StudentPostalCode, PreviousSchool, DateOfBirth, GradeID)
+	VALUES (@StudentName, @StudentSurname, @StudentEmail, @StudentPhone, @StudentCity,
+	                         @StudentAddress, @StudentPostalCode, @PreviousSchool, @DateOfBirth, @GradeID)
+END

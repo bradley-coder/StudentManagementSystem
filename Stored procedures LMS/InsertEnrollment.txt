@@ -1,0 +1,16 @@
+ALTER PROCEDURE [dbo].[InsertEnrolment] 
+	-- Add the parameters for the stored procedure here
+	@GradeSubjectID int,
+	@StudentID int,
+	@Grade nvarchar(50),
+	@DateEnrolled nvarchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO ENROLMENT(GradeSubjectID,StudentID,Grade,DateEnrolled)
+	VALUES(@GradeSubjectID,@StudentID,@Grade,@DateEnrolled)
+END

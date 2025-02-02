@@ -1,0 +1,2 @@
+SELECT gr.GradeSubjectID, gr.GradeID, gr.SubjectID, g.GradeDescription, s.Description, (s.Description + ' - ' + g.GradeDescription) AS Subject_GradeDescription FROM GRADE_SUBJECT gr, SUBJECT s, GRADE g
+WHERE gr.GradeID = g.GradeID AND gr.SubjectID = s.SubjectID

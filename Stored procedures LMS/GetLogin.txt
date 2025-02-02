@@ -1,0 +1,15 @@
+ALTER PROCEDURE [dbo].[sp_GetLogin]
+	-- Add the parameters for the stored procedure here
+	@Email nvarchar(50),
+	@Password nvarchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT *
+	FROM UserLogin l,tblUserRole r
+	WHERE l.UserRoleID=r.UserRoleID AND Email=@Email AND Password=@Password
+END

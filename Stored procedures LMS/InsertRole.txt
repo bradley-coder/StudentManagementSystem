@@ -1,0 +1,6 @@
+ALTER PROCEDURE [dbo].[insertRole]
+
+@RoleDescription nvarchar (50)
+AS
+INSERT INTO tblUserRole (RoleDescription)
+VALUES(@RoleDescription)

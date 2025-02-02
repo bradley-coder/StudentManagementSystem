@@ -1,0 +1,20 @@
+ALTER PROCEDURE [dbo].[sp_InsertGradeSubject] 
+	-- Add the parameters for the stored procedure here
+	@GradeID int,
+	@SubjectID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+     --Insert statements for procedure here
+	INSERT INTO GRADE_SUBJECT(GradeID,SubjectID)
+	VALUES (@GradeID,@SubjectID)
+
+	
+	--SELECT GradeDescription,Description
+	--FROM GRADE,SUBJECT,GRADE_SUBJECT
+	--WHERE GRADE.GradeID=GRADE_SUBJECT.GradeID AND SUBJECT.SubjectID=GRADE_SUBJECT.SubjectID
+
+END

@@ -1,0 +1,19 @@
+ALTER PROCEDURE [dbo].[sp_InsertStudentPDF]
+	-- Add the parameters for the stored procedure here
+	--@PdfFile nvarchar(MAX)
+	@Data varbinary(MAX),
+	@ContentType varchar(50),
+	@Name varchar(50),
+	@Date date,
+	@StudentID int,
+	@AssessmentID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO STUDENT_ASSIGNMENT(Data,ContentType,Name,Date,StudentID,AssessmentID)
+	VALUES(@Data,@ContentType,@Name,@Date,@StudentID,@AssessmentID)
+END

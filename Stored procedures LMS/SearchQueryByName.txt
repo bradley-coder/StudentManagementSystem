@@ -1,0 +1,18 @@
+ALTER PROCEDURE [dbo].[sp_GetQueryByName]
+	-- Add the parameters for the stored procedure here
+	@Question nvarchar(MAX)
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	
+	SELECT AnswerID,Status,Question,q.Date,Description,TeacherID,u.Name + u.Surname AS Fullname,Email 
+	FROM QUERY_ANSWER qa,QUERY q,UserLogin U
+	WHERE Question LIKE '%'+@Question+'%'
+	AND qa.QueryID=q.QueryID
+	AND qa.TeacherID=u.UserID
+END

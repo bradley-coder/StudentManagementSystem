@@ -1,0 +1,14 @@
+ALTER PROCEDURE [dbo].[sp_InsertTeachAnswer] 
+	-- Add the parameters for the stored procedure here	
+	@Description nvarchar(50),
+	@QueryID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO QUERY_ANSWER(Description,QueryID)
+	VALUES(@Description,@QueryID)
+END

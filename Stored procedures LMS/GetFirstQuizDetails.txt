@@ -1,0 +1,15 @@
+ALTER PROCEDURE [dbo].[sp_GetFirstQuizDetails]
+	-- Add the parameters for the stored procedure here
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT QuizID,q.Description,StartDate,EndDate,TotalMarks,Active,(s.Description + ' - ' + g.GradeDescription) AS Subject_GradeDescription
+	FROM Quiz q,GRADE_SUBJECT gr, SUBJECT s, GRADE g
+	WHERE gr.GradeID = g.GradeID AND gr.SubjectID = s.SubjectID AND Q.GradeSubjectID=gr.GradeSubjectID
+	AND QuizID=1
+END

@@ -1,0 +1,14 @@
+ALTER PROCEDURE [dbo].[sp_GetStudentMarks]
+	-- Add the parameters for the stored procedure here
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT MarkID,Quiz,Test1,Assessment,Test2,Assignment,Email,Name+''+Surname as FullName,Description, (Quiz+Test1+Test2+Assessment+Assignment) AS SemesterMark
+	FROM MARK m,UserLogin u
+	WHERE m.StudentID=u.UserID
+END

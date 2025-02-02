@@ -1,0 +1,15 @@
+ALTER PROCEDURE [dbo].[sp_InsertStudentQuery] 
+	-- Add the parameters for the stored procedure here
+	@Question nvarchar(MAX),
+	@Date nvarchar(50),
+	@StudentID nvarchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO QUERY(Question,Date,StudentID)
+	VALUES (@Question,@Date,@StudentID)
+END

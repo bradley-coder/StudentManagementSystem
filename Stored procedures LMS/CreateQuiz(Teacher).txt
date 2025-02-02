@@ -1,0 +1,20 @@
+ALTER PROCEDURE [dbo].[sp_CreateQuiz]
+	-- Add the parameters for the stored procedure here
+	@StartDate nvarchar(50),
+	@EndDate nvarchar(50),
+	@TotalMarks nvarchar(50),
+	@Description nvarchar(50),
+	@Active nvarchar(50),
+	@GradeSubjectID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO QUIZ(StartDate,EndDate,TotalMarks,Description,Active,GradeSubjectID)
+	values(@StartDate,@EndDate,@TotalMarks,@Description,@Active,@GradeSubjectID)
+
+	
+END

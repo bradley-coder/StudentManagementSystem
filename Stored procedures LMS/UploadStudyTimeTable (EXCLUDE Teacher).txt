@@ -1,0 +1,12 @@
+ALTER PROCEDURE [dbo].[usUploadStudyTimetable]
+	@TimetableName nvarchar(250),
+	@TimetableSize int,
+	@TimetableData varbinary(max),
+	@TimetableNewId int output
+AS
+BEGIN
+Insert into  Timetables
+values(@TimetableName,@TimetableSize,@TimetableData)
+
+	SELECT @TimetableNewId= SCOPE_IDENTITY()
+END

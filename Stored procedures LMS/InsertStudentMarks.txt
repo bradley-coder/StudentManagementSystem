@@ -1,0 +1,20 @@
+ALTER PROCEDURE [dbo].[InsertStudentMarks]
+	-- Add the parameters for the stored procedure here
+	@Description nvarchar(50),
+	@Quiz int,
+	@Test1 int,
+	@Assessment int,
+	@Test2 int,
+	@Assignment int,
+	@StudentID int
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO MARK(Description,Quiz, Test1, Assessment, Test2, Assignment, StudentID)
+	VALUES (@Description, @Quiz, @Test1, @Assessment, @Test2, @Assignment, @StudentID)
+END

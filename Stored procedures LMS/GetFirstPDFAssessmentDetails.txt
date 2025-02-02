@@ -1,0 +1,15 @@
+ALTER PROCEDURE [dbo].[sp_GetFirstPDFAssessmentDet]
+	-- Add the parameters for the stored procedure here
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT a.OpenDate,a.DueDate,a.Description,(s.Description + ' - ' + g.GradeDescription) AS Subject_GradeDescription
+	FROM Assessment a,GRADE g,SUBJECT s,GRADE_SUBJECT gs
+	WHERE g.GradeID=gs.GradeID AND s.SubjectID=gs.SubjectID AND gs.GradeSubjectID=a.GradeSubjectID 
+	AND a.Description='Assignment 1'
+END

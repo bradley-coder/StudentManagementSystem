@@ -1,0 +1,18 @@
+ALTER PROCEDURE [dbo].[sp_StudentMarksPerSubjectInAGrade] 
+	-- Add the parameters for the stored procedure here
+	@GradeID int,
+	@SubjectID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT st.StudentName + ' ' + st.StudentSurname as [Full Name], m.Quiz, m.Test1 as [Test 1], m.Assessment, m.Test2 as [Test 2], m.Assignment,m.StudentID
+	from tblStudent st, MARK m
+    Where st.StudentID = m.StudentID
+	and st.GradeID = @GradeID
+	and m.SubjectID = @SubjectID
+
+END

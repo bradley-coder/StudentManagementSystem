@@ -1,0 +1,15 @@
+ALTER PROCEDURE [dbo].[sp_GetPDF]
+	-- Add the parameters for the stored procedure here
+	@StudentID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT AssessmentID,Date,sa.Name,ContentType,Data,StudentID
+	FROM STUDENT_ASSIGNMENT sa,UserLogin u
+	WHERE u.UserID=sa.StudentID AND
+	sa.StudentID=@StudentID AND AssessmentID=1
+END

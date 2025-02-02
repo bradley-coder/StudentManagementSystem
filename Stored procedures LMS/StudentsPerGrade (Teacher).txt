@@ -1,0 +1,14 @@
+ALTER PROCEDURE [dbo].[sp_StudentsPerGrade] 
+	-- Add the parameters for the stored procedure here
+	@GradeID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT t.StudentName + ' ' + t.StudentSurname AS [Full Name], t.StudentEmail, t.PreviousSchool, t.DateOfBirth,t.StudentPhone,t.StudentAddress
+	FROM tblStudent t
+	WHERE t.GradeID = @GradeID
+END

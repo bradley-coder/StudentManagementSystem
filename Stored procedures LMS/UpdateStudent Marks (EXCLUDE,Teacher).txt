@@ -1,0 +1,76 @@
+ALTER PROCEDURE [dbo].[sp_UpdateStudentMarks]
+	-- Add the parameters for the stored procedure here
+	@StudentID int,
+	@SubjectID int,
+	@Term nvarchar(50),
+	@Mark nvarchar(50)
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if(@Term = 'Quiz')
+		Begin
+			Update MARK SET Quiz = @Mark
+			where StudentID = @StudentID
+			AND SubjectID = @SubjectID
+
+			IF( @@ROWCOUNT = 0)
+				BEGIN 
+					INSERT INTO MARK(StudentID,SubjectID,Quiz)
+					values(@StudentID,@SubjectID,@Mark)
+			end
+	END
+	else if(@Term = 'Test1')
+		Begin
+			Update MARK SET Test1 = @Mark
+			WHERE StudentID = @StudentID
+			AND SubjectID = @SubjectID
+
+			IF( @@ROWCOUNT = 0)
+				BEGIN 
+					INSERT INTO MARK(StudentID,SubjectID,Quiz)
+					VALUES(@StudentID,@SubjectID,@Mark)
+			END
+		END
+	else if(@Term = 'Assessment')
+		Begin
+			Update MARK SET Assessment = @Mark
+			WHERE StudentID = @StudentID
+			AND SubjectID = @SubjectID
+
+			IF( @@ROWCOUNT = 0)
+				BEGIN 
+					INSERT INTO MARK(StudentID,SubjectID,Quiz)
+					VALUES(@StudentID,@SubjectID,@Mark)
+			END
+		END
+	else if(@Term = 'Test2')
+		Begin
+			Update MARK SET Test2 = @Mark
+			WHERE StudentID = @StudentID
+			AND SubjectID = @SubjectID
+
+			IF( @@ROWCOUNT = 0)
+				BEGIN 
+					INSERT INTO MARK(StudentID,SubjectID,Quiz)
+					VALUES(@StudentID,@SubjectID,@Mark)
+			END
+		END
+	else if(@Term = 'Assignment')
+		Begin
+			Update MARK SET Assignment = @Mark
+			WHERE StudentID = @StudentID
+			AND SubjectID = @SubjectID
+
+			IF( @@ROWCOUNT = 0)
+				BEGIN 
+					INSERT INTO MARK(StudentID,SubjectID,Quiz)
+					VALUES(@StudentID,@SubjectID,@Mark)
+			END
+		END
+	
+END

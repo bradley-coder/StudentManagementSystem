@@ -1,0 +1,20 @@
+ALTER PROCEDURE [dbo].[sp_InsertQuestions] 
+	-- Add the parameters for the stored procedure here
+	@QuestionType nvarchar(50),
+	@QuesDescription nvarchar(50),
+	@Answer nvarchar(50),
+	@Option1 nvarchar(50),
+	@Option2 nvarchar(50),
+	@Option3 nvarchar(50),
+	@QuizID int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO QUESTION(QuestionType,QuesDescription,Answer,Option1,Option2,Option3,QuizID)
+	VALUES (@QuestionType,@QuesDescription,@Answer,@Option1,@Option2,@Option3,@QuizID)
+	
+END
